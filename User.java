@@ -3,7 +3,7 @@ public class User {
     private String role;
     private String account_type;
 
-    public User(String fullName, String role) {
+    public User(String fullName, String role, String account_type) {
         this.fullName = fullName;
         this.role = role;
         this.account_type = account_type;
