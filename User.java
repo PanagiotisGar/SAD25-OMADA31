@@ -33,6 +33,6 @@ public class User {
         this.account_type = account_type;
     }
     public void printData() {
-        System.out.println("Name: " + fullName + "| Role: " + role);
+        System.out.println("Name: " + fullName + "| Role: " + role + "| Account Type: " + account_type);
     }
 }
