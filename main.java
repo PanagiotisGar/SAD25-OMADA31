@@ -67,7 +67,7 @@ public static void main(String[] args) {
     
     // order1: customer1, employee4, Τιμολόγιο
     // Περιλαμβάνει: 10 * product1, 5 * product3
-    Order order1 = new Order(customer1, employee4, "Invoice");
+    Order order1 = new Order(1,customer1, employee4, "Invoice");
     order1.addItem(product1, 10);
     product1.reduceStock(10); // Μείωση αποθέματος: 80 - 10 = 70
     order1.addItem(product3, 5);
@@ -77,7 +77,7 @@ public static void main(String[] args) {
 
     // order2: customer1, employee4, Τιμολόγιο
     // Περιλαμβάνει: 8 * product2, 12 * product4
-    Order order2 = new Order(customer1, employee4, "Invoice");
+    Order order2 = new Order(2, customer1, employee4, "Invoice");
     order2.addItem(product2, 8);
     product2.reduceStock(8);  // Μείωση αποθέματος: 45 - 8 = 37
     order2.addItem(product4, 12);
@@ -87,7 +87,7 @@ public static void main(String[] args) {
 
     // order3: customer2, employee4, Τιμολόγιο
     // Περιλαμβάνει: 20 * product3, 10 * product4, 6 * product1
-    Order order3 = new Order(customer2, employee4, "Invoice");
+    Order order3 = new Order(orderId: 3,customer2, employee4, "Invoice");
     order3.addItem(product3, 20);
     product3.reduceStock(20); // Μείωση αποθέματος: 20 - 20 = 0
     order3.addItem(product4, 10);
@@ -99,7 +99,7 @@ public static void main(String[] args) {
 
     // order4: customer3, employee3, Απόδειξη
     // Περιλαμβάνει: 1 * product1, 2 * product4
-    Order order4 = new Order(customer3, employee3, "Receipt");
+    Order order4 = new Order(orderId: 4,customer3, employee3, "Receipt");
     order4.addItem(product1, 1);
     product1.reduceStock(1);  // Μείωση αποθέματος: 64 - 1 = 63
     order4.addItem(product4, 2);
