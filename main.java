@@ -66,44 +66,40 @@ public static void main(String[] args) {
     //4. ΔΗΜΙΟΥΡΓΙΑ ΠΑΡΑΓΓΕΛΙΩΝ & ΜΕΙΩΣΗ ΑΠΟΘΕΜΑΤΟΣ
     
     // order1: customer1, employee4, Τιμολόγιο
-    // Περιλαμβάνει: 10 * product1, 5 * product3
-    Order order1 = new Order(customer1, employee4, "Invoice");
+    Order order1 = new Order(1,customer1, employee4, "Invoice");
     order1.addItem(product1, 10);
-    product1.reduceStock(10); // Μείωση αποθέματος: 80 - 10 = 70
+    product1.reduceStock(10);
     order1.addItem(product3, 5);
-    product3.reduceStock(5);   // Μείωση αποθέματος: 25 - 5 = 20
+    product3.reduceStock(5); 
     orderCatalog.add(order1);
     System.out.println("Object order1 for customer1 executed by employee4 (Invoice) has been created.");
 
     // order2: customer1, employee4, Τιμολόγιο
-    // Περιλαμβάνει: 8 * product2, 12 * product4
-    Order order2 = new Order(customer1, employee4, "Invoice");
+    Order order2 = new Order(2, customer1, employee4, "Invoice");
     order2.addItem(product2, 8);
-    product2.reduceStock(8);  // Μείωση αποθέματος: 45 - 8 = 37
+    product2.reduceStock(8); 
     order2.addItem(product4, 12);
-    product4.reduceStock(12); // Μείωση αποθέματος: 60 - 12 = 48
+    product4.reduceStock(12); 
     orderCatalog.add(order2);
     System.out.println("Object order2 for customer1 executed by employee4 (Invoice) has been created.");
 
     // order3: customer2, employee4, Τιμολόγιο
-    // Περιλαμβάνει: 20 * product3, 10 * product4, 6 * product1
-    Order order3 = new Order(customer2, employee4, "Invoice");
+    Order order3 = new Order(3, customer2, employee4, "Invoice");
     order3.addItem(product3, 20);
-    product3.reduceStock(20); // Μείωση αποθέματος: 20 - 20 = 0
+    product3.reduceStock(20); 
     order3.addItem(product4, 10);
-    product4.reduceStock(10); // Μείωση αποθέματος: 48 - 10 = 38
+    product4.reduceStock(10);
     order3.addItem(product1, 6);
-    product1.reduceStock(6);  // Μείωση αποθέματος: 70 - 6 = 64
+    product1.reduceStock(6);  
     orderCatalog.add(order3);
     System.out.println("Object order3 for customer2 executed by employee4 (Invoice) has been created.");
 
     // order4: customer3, employee3, Απόδειξη
-    // Περιλαμβάνει: 1 * product1, 2 * product4
-    Order order4 = new Order(customer3, employee3, "Receipt");
+    Order order4 = new Order(4, customer3, employee3, "Receipt");
     order4.addItem(product1, 1);
-    product1.reduceStock(1);  // Μείωση αποθέματος: 64 - 1 = 63
+    product1.reduceStock(1);  
     order4.addItem(product4, 2);
-    product4.reduceStock(2);  // Μείωση αποθέματος: 38 - 2 = 36
+    product4.reduceStock(2); 
     orderCatalog.add(order4);
     System.out.println("Object order4 for customer3 executed by employee3 (Receipt) has been created.");
 
@@ -111,9 +107,8 @@ public static void main(String[] args) {
     System.out.println("\n=== ΑΚΥΡΩΣΗ ΠΑΡΑΓΓΕΛΙΑΣ (order2) ===\n");
 
     //5. ΔΙΑΓΡΑΦΗ/ΑΚΥΡΩΣΗ ΤΗΣ order2
-    // Εφόσον ακυρώνεται, επιστρέφουμε τα προϊόντα στο απόθεμα πριν τη διαγραφή
-    product2.increaseStock(8);  // Επιστροφή: 37 + 8 = 45
-    product4.increaseStock(12); // Επιστροφή: 36 + 12 = 48
+    product2.increaseStock(8);
+    product4.increaseStock(12);
     orderCatalog.remove(order2);
     System.out.println("Object order2 has been deleted (canceled) successfully. Stock restored.");
 
@@ -121,7 +116,6 @@ public static void main(String[] args) {
     System.out.println("\n=== ΕΛΕΓΧΟΣ ΑΠΟΘΕΜΑΤΩΝ & ΑΝΑΠΛΗΡΩΣΗ ===\n");
 
     //6. ΕΛΕΓΧΟΣ ΑΠΟΘΕΜΑΤΩΝ (Automated Supplier Order)
-    //Διατρέχουμε όλα τα προϊόντα του καταλόγου για να ελέγξουμε το όριο ασφαλείας
     for (Product prod : productCatalog) {
         if (prod.getAvailableStock() < prod.getSafetyLimit()) {
             System.out.println("Alert: Product \"" + prod.getName() + "\" is below safety limit! (Current: " 
