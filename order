@@ -1,6 +1,6 @@
+import java.util.ArrayList;
 import java.util.Date;
-import java.util.HashMap;
-import java.util.Map;
+import java.util.List;
 
 enum OrderStatus {
     PENDING, CONFIRMED, CANCELLED
@@ -14,7 +14,9 @@ public class Order {
     private Customer customer;
     private Employee employee;
     private String type;
-    private Map<Product, Integer> items = new HashMap<>();
+    
+    // Χρήση List<OrderLine> σύμφωνα με το διάγραμμα
+    private List<OrderLine> items = new ArrayList<>();
 
     public Order(int orderId, Customer customer, Employee employee, String type) {
         this.orderId = orderId;
@@ -25,15 +27,17 @@ public class Order {
         this.status = OrderStatus.PENDING;
     }
 
+    // Επικοινωνία με την κλάση OrderLine για την προσθήκη προϊόντων στην παραγγελία
     public void addItem(Product product, int quantity) {
-        items.put(product, quantity);
+        OrderLine line = new OrderLine(product, quantity);
+        items.add(line);
         calculateTotal();
     }
 
     public void calculateTotal() {
         double total = 0;
-        for (Map.Entry<Product, Integer> entry : items.entrySet()) {
-            total += entry.getKey().getPrice() * entry.getValue();
+        for (OrderLine line : items) {
+            total += line.calculateSubtotal();
         }
         this.totalAmount = total;
     }
@@ -42,7 +46,32 @@ public class Order {
         this.status = OrderStatus.CONFIRMED;
     }
 
+    // --- Getters ---
+
+    public Customer getCustomer() {
+        return customer;
+    }
+
+    public double getTotalAmount() {
+        return totalAmount;
+    }
+
+    public String getType() {
+        return type;
+    }
+
+    public int getOrderId() {
+        return orderId;
+    }
+
+    public List<OrderLine> getItems() {
+        return items;
+    }
+
+    // --------------------------------------------------------------
+
     public void printData() {
-        System.out.println("Order ID: " + orderId + " | Customer: " + customer.getName() + " | Total: " + totalAmount + " | Status: " + status);
+        System.out.println("Order ID: " + orderId + " | Customer: " + customer.getName() + 
+                           " | Total: " + totalAmount + "€ | Status: " + status);
     }
 }
