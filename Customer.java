@@ -15,8 +15,6 @@ public class Customer {
         this.status = status;
     }
 
-    // Getters
-
     public String getName() {
         return name;
     }

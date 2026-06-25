@@ -9,7 +9,6 @@ public class User {
         this.account_type = account_type;
 
     }
-    // --- GETTERS & SETTERS ---
 
     public String getFullName() {
         return fullName;

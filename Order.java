@@ -14,8 +14,6 @@ public class Order {
     private Customer customer;
     private Employee employee;
     private String type;
-    
-    // Χρήση List<OrderLine> σύμφωνα με το διάγραμμα
     private List<OrderLine> items = new ArrayList<>();
 
     public Order(int orderId, Customer customer, Employee employee, String type) {
@@ -27,7 +25,6 @@ public class Order {
         this.status = OrderStatus.PENDING;
     }
 
-    // Επικοινωνία με την κλάση OrderLine για την προσθήκη προϊόντων στην παραγγελία
     public void addItem(Product product, int quantity) {
         OrderLine line = new OrderLine(product, quantity);
         items.add(line);
@@ -45,8 +42,6 @@ public class Order {
     public void confirmOrder() {
         this.status = OrderStatus.CONFIRMED;
     }
-
-    // --- Getters ---
 
     public Customer getCustomer() {
         return customer;
@@ -68,7 +63,6 @@ public class Order {
         return items;
     }
 
-    // --------------------------------------------------------------
 
     public void printData() {
         System.out.println("Order ID: " + orderId + " | Customer: " + customer.getName() + 

@@ -11,9 +11,6 @@ public class PurchaseOrder {
     private String reason;
     private String status;
 
-    // Constructor used when the supplier has not been selected yet.
-    // It is needed because the assignment asks for automatic creation of a supplier order
-    // when stock falls below the safety limit, without requiring supplier selection in main().
     public PurchaseOrder(Product product, int quantity) {
         this(null, product, quantity,
                 "Stock fell below the safety limit", "Created");
