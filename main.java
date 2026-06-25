@@ -1,9 +1,10 @@
 import java.util.ArrayList;
 import java.util.List;
 
-public static void main(String[] args) {
-    // Δημιουργία των καταλόγων
-    List<Product> productCatalog = new ArrayList<>();
+public class Main {
+    public static void main(String[] args) {
+        // Δημιουργία των καταλόγων
+        List<Product> productCatalog = new ArrayList<>();
     List<Customer> customerCatalog = new ArrayList<>();
     List<Employee> employeeCatalog = new ArrayList<>();
     List<Order> orderCatalog = new ArrayList<>();
@@ -30,15 +31,15 @@ public static void main(String[] args) {
 
 
     //2. ΔΗΜΙΟΥΡΓΙΑ ΠΕΛΑΤΩΝ
-    Customer customer1 = new Customer("Farmakeio Papadopoulou", "Pharmacy", "099845210", "DOY Kalamarias", "OK");
+    Customer customer1 = new Customer("Farmakeio Papadopoulou", "Pharmacy", "099845210", "DOY Kalamarias","ΟΚ");
     customerCatalog.add(customer1);
     System.out.println("Object customer1 (\"Farmakeio Papadopoulou\") has been created and added to catalog.");
 
-    Customer customer2 = new Customer("Farmakeio Nikolaidis", "Pharmacy", "078632145", "DOY Evosmou", "OK");
+    Customer customer2 = new Customer("Farmakeio Nikolaidis", "Pharmacy", "078632145", "DOY Evosmou","ΟΚ");
     customerCatalog.add(customer2);
     System.out.println("Object customer2 (\"Farmakeio Nikolaidis\") has been created and added to catalog.");
 
-    Customer customer3 = new Customer("Georgiou Maria", "Retail", "112233445", "DOY Thessalonikis", "OK");
+    Customer customer3 = new Customer("Georgiou Maria", "Retail", "112233445", "DOY Thessalonikis","ΟΚ");
     customerCatalog.add(customer3);
     System.out.println("Object customer3 (\"Georgiou Maria\") has been created and added to catalog.");
 
@@ -168,4 +169,5 @@ public static void main(String[] args) {
     }
     
     System.out.println("\n=== ΤΕΛΟΣ ΕΚΤΕΛΕΣΗΣ ΠΡΟΓΡΑΜΜΑΤΟΣ ===");
+    }
 }

@@ -3,9 +3,9 @@ public class Pharmacy extends Customer {
     private String vatNumber;
     private double wholesaleDiscount;
 
-    public Pharmacy(int customerId, String name, String phone, String address, String vatNumber, double wholesaleDiscount) {
+    public Pharmacy(String name, String customerType, String afm, String doy, String status, String vatNumber, double wholesaleDiscount) {
 
-        super(customerId, name, phone, address);
+        super(name, customerType, afm, doy, status);
 
         this.vatNumber = vatNumber;
         this.wholesaleDiscount = wholesaleDiscount;

@@ -1,7 +1,7 @@
 public class RetailCustomer extends Customer {
 
-    public RetailCustomer(int customerId, String name, String phone, String address) {
-        super(customerId, name, phone, address);
+    public RetailCustomer(String name, String customerType, String afm, String doy, String status) {
+        super(name, customerType, afm, doy, status);
     }
 
     public double makeRetailPurchase(double[] prices, int[] quantities) {

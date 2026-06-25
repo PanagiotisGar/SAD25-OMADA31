@@ -1,41 +1,47 @@
 public class Customer {
 
-    protected int customerId;
-    protected String name;
-    protected String phone;
-    protected String address;
+    private String name;
+    private String customerType;
+    private String afm;
+    private String doy;
+    private String status;
 
-    public Customer(int customerId, String name, String phone, String address) {
-        this.customerId = customerId;
+    public Customer(String name, String customerType, String afm, String doy, String status) {
+
         this.name = name;
-        this.phone = phone;
-        this.address = address;
+        this.customerType = customerType;
+        this.afm = afm;
+        this.doy = doy;
+        this.status = status;
     }
 
     // Getters
-
-    public int getCustomerId() {
-        return customerId;
-    }
 
     public String getName() {
         return name;
     }
 
-    public String getPhone() {
-        return phone;
+    public String getCustomerType() {
+        return customerType;
     }
 
-    public String getAddress() {
-        return address;
+    public String getAfm() {
+        return afm;
+    }
+
+    public String getDoy() {
+        return doy;
+    }
+
+    public String getStatus() {
+        return status;
     }
 
     public void printData() {
-        System.out.println(
-                "Customer ID: " + customerId +
-                        " | Name: " + name +
-                        " | Phone: " + phone +
-                        " | Address: " + address
-        );
+        System.out.println("Customer Name: " + name);
+        System.out.println("Customer Type: " + customerType);
+        System.out.println("AFM: " + afm);
+        System.out.println("DOY: " + doy);
+        System.out.println("Status: " + status);
     }
 }

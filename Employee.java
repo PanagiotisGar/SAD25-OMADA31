@@ -33,7 +33,7 @@ public class Employee extends User {
 
     @Override
     public void printData() {
-        super.printData(); // Τυπώνει: Name | Role | Account Type
+        super.printData();
         System.out.println("   └─ Employee Code: " + employeeCode + " | Hire Date: " + hireDate);
     }
 }
